@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="ungar.navigationcomponent.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -21,20 +21,20 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ungar.navigationcomponent.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"/>
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="ungar.navigationcomponent.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="Welcome, {username}"
         tools:layout="@layout/fragment_welcome" >
         <argument
             android:name="username"
