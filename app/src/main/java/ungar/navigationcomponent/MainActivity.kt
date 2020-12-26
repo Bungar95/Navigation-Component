@@ -7,10 +7,7 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,13 +23,15 @@ class MainActivity : AppCompatActivity() {
         //making so that search fragment doesnt have "back" since its top-level like home.
         //https://youtu.be/llWsm9Pjkpc?t=392
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.homeFragment, R.id.searchFragment)
+            setOf(R.id.homeFragment, R.id.searchFragment),
+            drawer_layout
         )
 
         setSupportActionBar(toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottom_nav.setupWithNavController(navController)
+        nav_view.setupWithNavController(navController)
 
     }
 
@@ -53,6 +52,6 @@ class MainActivity : AppCompatActivity() {
 
     //https://youtu.be/yLOsaR_nDrU?t=369
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
