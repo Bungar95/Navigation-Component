@@ -15,8 +15,10 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        tvUsername.text = args.username
-        tvPassword.text = args.password
+        tvFirstname.text = args.currentUser.firstname
+        tvUsername.text = args.currentUser.username
+        tvPassword.text = args.currentUser.password
+
 
         btnOk.setOnClickListener {
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
